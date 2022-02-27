@@ -1,0 +1,41 @@
+<div style="width: 100vw; height: 100vh; display: flex;flex-direction: row;">
+    <div style="width: 50%; height:100%; background-color: antiquewhite;">
+
+    </div>
+
+    <div style="width: 50%; height:100%; display: flex; align-items: center; justify-content: center;flex-direction: column;">
+        <div style="padding-right: 24px;">
+             <span>Bem vindo de volta</span> <br>   
+             <span><h1>Entre com sua conta</h1></span>   
+        </div>
+        <div>
+            <div class="input-container">
+                <span>Email</span><br>
+                <mat-form-field appearance="outline">
+                  <mat-label>Insira seu email</mat-label>
+                  <input matInput placeholder="example@example.com" [formControl]="email" required>
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <span>Senha</span><br>
+                <mat-form-field appearance="outline">
+                    <mat-label>Insira sua senha</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <mat-checkbox style="font-weight: 100;">Lembre-me</mat-checkbox>
+                
+                    <a href="recuperarSenha">Esqueceu a senha?</a>
+            </div>
+            
+        </div>
+    </div>
+
+
+</div>
