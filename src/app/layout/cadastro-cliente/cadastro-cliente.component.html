@@ -1,0 +1,55 @@
+<div style="display: flex; flex-direction: column;">
+  <div style="display:inline-flex;">
+    <div>
+      <div>
+        <label>Nome</label>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="cliente.nome" [formControl]="nome" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label>CPF</label>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <input matInput  mask="000.000.000-00" [(ngModel)]="cliente.cpf" [formControl]="cpf" required>
+          <mat-error>Favor inserir um CPF Válido</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: inline-flex;">
+    <div>
+      <div>
+        <label>Email</label>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="cliente.email" [formControl]="email">
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label> Telefone</label>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="cliente.telefone" [formControl]="telefone" mask="(00)0 0000-0000||(00) 0000-0000">
+        </mat-form-field>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div>
+    <button mat-stroked-button color="primary" (click)="salvarCliente()" [disabled]="formularioValido()">Salvar</button>
+    <button mat-stroked-button color="accent">Cancelar</button>
+  </div>
+
+<router-outlet></router-outlet>

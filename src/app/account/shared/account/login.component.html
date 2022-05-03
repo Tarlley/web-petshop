@@ -13,7 +13,7 @@
                 <span>Email</span><br>
                 <mat-form-field appearance="outline">
                   <mat-label>Insira seu email</mat-label>
-                  <input matInput placeholder="example@example.com" [formControl]="email" required>
+                  <input matInput type="email" placeholder="example@example.com" [formControl]="email" [(ngModel)]="usuario.email" required>
                   <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                 </mat-form-field>
             </div>
@@ -21,7 +21,7 @@
                 <span>Senha</span><br>
                 <mat-form-field appearance="outline">
                     <mat-label>Insira sua senha</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
+                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" [(ngModel)]="usuario.password" required>
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
@@ -34,10 +34,12 @@
                     <a href="recuperarSenha">Esqueceu a senha?</a>
             </div>
             <div class="container-button">
-                <button mat-button style="width: 347px; height: 50px;background-color:#04C35C; color: white;">Logar agora</button>
+                <button mat-button style="width: 347px; height: 50px;background-color:#04C35C; color: white;" [disabled]
+                ="email.invalid || password.invalid" (click)="onSubmit()">Logar agora</button>
             </div>
         </div>
     </div>
+
 
 
 </div>
